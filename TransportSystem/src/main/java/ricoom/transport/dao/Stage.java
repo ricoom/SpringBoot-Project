@@ -1,12 +1,15 @@
 package ricoom.transport.dao;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Stage {
@@ -16,6 +19,16 @@ public class Stage {
 	@ManyToOne
 	@JoinColumn(name="PASS_STAGE")
 	private Passanger passanger;
+	@NotEmpty
+	@Column(unique = true)
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Min(value=20,message="put valid cost")
 	private int cost=0;
 	public long getId() {
 		return id;

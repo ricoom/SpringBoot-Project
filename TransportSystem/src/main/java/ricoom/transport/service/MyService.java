@@ -13,7 +13,7 @@ import ricoom.transport.repository.StageRepo;
 
 
 @Service
-public class Simple {
+public class MyService {
 	@Autowired
       private PassangerRepo passRepo;
 	@Autowired
